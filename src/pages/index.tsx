@@ -2,17 +2,33 @@ import Button from 'components/atoms/Button';
 import Figure from 'components/molecules/Figure';
 import ProjectCard from 'components/molecules/ProjectCard';
 import Footer from 'components/organism/Footer';
-import Layout from 'components/templates/Layout';
+import Layout, { LayoutProps } from 'components/templates/Layout';
 import { AnimatePresence, motion } from 'framer-motion';
 import variants from 'libs/animation/variants';
 import getProjects from 'libs/helpers/getProjects';
 import type { NextPage } from 'next';
 import { ProjectProps } from 'types/project';
 
-const meta = {
+const meta:LayoutProps = {
   title: 'Rendy Farhan Ramadhan',
-  templateTitle: 'Rendy Ramadhan, Student and Web Developer from Indonesia',
+  templateTitle: 'Student and Frontend Developer From Indonesia',
   description: `Hello there 👋, Im Rendy Farhan Ramadhan, I (happen to) loves code, minimalist surreal art and music.`,
+  openGraph: {
+    type: 'website',
+    site_name: 'Rendy Farhan Ramadhan',
+    url: 'https://www.rndyrmdhn.me/'
+  },
+  additionalMetaTags: [
+    {
+      name: 'keywords',
+      content:
+        'rendyramadhan, Rendy Ramadhan, rndyrmdhn, rndyfarhan, Rendy Farhan Ramadhan, Rendy, Farhan, Ramadhan, Rendy Dev, Farhan, Rendy Farhan, Rendy Github, rendy github, rndy github, Rendy GitHub, Rndy github, Rndy Nextjs, Rendy Nextjs, Personal Website, Frontend, Frontend Dev, Frontend Developer, Developer, Indonesia, Rendy Ramadhan Developer, Rendy Farhan Dev, Rendy Dev, Rendy Farhan Ramadhan , rndyramadhan, developer from indonesia, personal website'
+    },
+    {
+      name: 'author',
+      content: 'Rendy Farhan Ramadhan'
+    }
+  ]
 };
 
 export const getStaticProps = async () => {
@@ -42,7 +58,7 @@ const Home: NextPage<ProjectProps> = ({ projects }) => {
           <div className="section__wrapper">
             <div className='section__inner'>
               <h1 className='section__name section__name--mb-1'>Rendy Ramadhan.</h1>
-              <h3 className='section__sub-title'>Student &amp; Web Developer.</h3>
+              <h3 className='section__sub-title'>Student &amp; Frontend Developer.</h3>
             </div>
             <p className='section__description section__description--mb-2'>{meta.description}</p>
             <Button onClick={() => console.log('clicked')} background='#4C566A' color='#ECEFF4' text='Resume' className='section__btn' />
@@ -55,7 +71,7 @@ const Home: NextPage<ProjectProps> = ({ projects }) => {
           key='about'
           initial='hidden'
           whileInView='visible'
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-600px 0px 0px 0px" }}
           variants={variants.common}
           className='section section--about'>
           <h1 className='section__title'>About Me</h1>
@@ -85,7 +101,7 @@ const Home: NextPage<ProjectProps> = ({ projects }) => {
           key='projects'
           initial='hidden'
           whileInView='visible'
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: '-600px 0px 0px 0px' }}
           variants={variants.common}
           className='section section--projects'
         >

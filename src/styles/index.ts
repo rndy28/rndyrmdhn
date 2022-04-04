@@ -35,15 +35,15 @@ const Styles = createGlobalStyle`
     }
 
     ::-webkit-scrollbar-track {
-    background: #ECEFF4;
+        background: #ECEFF4;
     }
 
     ::-webkit-scrollbar-thumb {
-    background: #434C5E;
+        background: #434C5E;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-    background: #4C566A;
+        background: #4C566A;
     }
 
     .section {

@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 import styled from 'styled-components';
 
 
-interface LayoutProps extends SeoProps {
+export interface LayoutProps extends SeoProps {
     title: string
 }
 
