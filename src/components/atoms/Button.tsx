@@ -9,7 +9,8 @@ type ButtonProps = {
   href?: string;
   className?: string;
   onClick?: (() => void);
-}
+  children?: React.ReactNode;
+};
 
 const Container = styled(BaseCard) <{ color?: string; }>`
   width: 8rem;
@@ -34,7 +35,9 @@ const Button = ({
   color,
   href,
   className,
-  onClick }: ButtonProps) => {
+  onClick,
+  children
+}: ButtonProps) => {
   return (
     <Container
       role='button'
@@ -43,10 +46,11 @@ const Button = ({
       borderColor={background}
       color={color}
       onClick={onClick}
-      spacesBetweenStrokes={10}
+      spacesBetweenStrokes={9}
       noBorderRadius
-      >
+    >
       {href ? <Link href={href}><a>{text}</a></Link> : <span>{text}</span>}
+      {children && children}
     </Container>
   );
 };

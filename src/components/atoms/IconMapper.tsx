@@ -1,87 +1,62 @@
-import { IconBrandFacebook, IconBrandGithub, IconBrandLinkedin, IconBrandTelegram, IconBrandTwitter, IconExternalLink, IconMail } from '@tabler/icons';
+import { IconBrandFacebook, IconBrandGithub, IconBrandLinkedin, IconBrandTelegram, IconBrandTwitter, IconExternalLink, IconMail, IconUpload } from '@tabler/icons';
 import {
     SiCss3, SiFirebase, SiHtml5, SiJavascript, SiLaravel, SiMongodb,
     SiNextdotjs, SiNodedotjs,
     SiPhp, SiReact, SiSass, SiStyledcomponents, SiTypescript, SiVite
 } from 'react-icons/si';
-import styled from 'styled-components';
 
-type Size = 'sm' | 'md' | 'lg';
-
-const Small = styled.div`
-    height: 1.5rem;
-    width: 1.5rem;
-`;
-
-const Medium = styled.div`
-    height: 2rem;
-    width: 2rem;
-`;
-
-const Large = styled.div`
-    height: 2.5rem;
-    width: 2.5rem;
-`;
-
-const Wrapper = styled.div<{ size?: Size;}>`
-    display: grid;
-    place-items: center;
-    border-radius: 0.2rem;
-    ${({ size }) => size === 'sm' && Small};
-    ${({ size }) => size === 'md' && Medium};
-    ${({ size }) => size === 'lg' && Large};
-`;
-
-const IconMapper = ({ name, size, className }: { name: string; size?: Size; className?: string; }) => {
+const IconMapper = ({ name, className }: { name: string; className?: string; }) => {
     switch (name) {
         case 'github':
-            return <Wrapper size={size} className={className}><IconBrandGithub /></Wrapper>;
+            return <IconBrandGithub className={className}/>;
         case 'linkedin':
-            return <Wrapper size={size} className={className}><IconBrandLinkedin /></Wrapper>;
+            return <IconBrandLinkedin className={className}/>;
         case 'twitter':
-            return <Wrapper size={size} className={className}><IconBrandTwitter /></Wrapper>;
+            return <IconBrandTwitter className={className}/>;
         case 'mail':
-            return <Wrapper size={size} className={className}><IconMail /></Wrapper>;
+            return <IconMail className={className}/>;
         case 'telegram':
-            return <Wrapper size={size} className={className}><IconBrandTelegram /></Wrapper>;
+            return <IconBrandTelegram className={className}/>;
         case 'facebook':
-            return <Wrapper size={size} className={className}><IconBrandFacebook /></Wrapper>;
+            return <IconBrandFacebook className={className}/>;
         case 'external':
-            return <Wrapper size={size} className={className}><IconExternalLink /></Wrapper>;
+            return <IconExternalLink className={className}/>;
         case 'javascript':
-            return <Wrapper size={size} className={className}><SiJavascript /></Wrapper>;
+            return <SiJavascript className={className}/>;
         case 'typescript':
-            return <Wrapper size={size} className={className}><SiTypescript /></Wrapper>;
+            return <SiTypescript className={className}/>;
         case 'react':
         case 'reactjs':
-            return <Wrapper size={size} className={className}><SiReact /></Wrapper>;
+            return <SiReact className={className}/>;
         case 'node':
-            return <Wrapper size={size} className={className}><SiNodedotjs /></Wrapper>;
+            return <SiNodedotjs className={className}/>;
         case 'php':
-            return <Wrapper size={size} className={className}><SiPhp /></Wrapper>;
+            return <SiPhp className={className}/>;
         case 'sass':
         case 'scss':
-            return <Wrapper size={size} className={className}><SiSass /></Wrapper>;
+            return <SiSass className={className}/>;
         case 'styled-components':
         case 'styled components':
-            return <Wrapper size={size} className={className}><SiStyledcomponents /></Wrapper>;
+            return <SiStyledcomponents className={className}/>;
         case 'vite':
-            return <Wrapper size={size} className={className}><SiVite /></Wrapper>;
+            return <SiVite className={className}/>;
         case 'firebase':
-            return <Wrapper size={size} className={className}><SiFirebase /></Wrapper>;
+            return <SiFirebase className={className}/>;
         case 'mongodb':
-            return <Wrapper size={size} className={className}><SiMongodb /></Wrapper>;
+            return <SiMongodb className={className}/>;
         case 'next':
         case 'nextjs':
-            return <Wrapper size={size} className={className}><SiNextdotjs /></Wrapper>;
+            return <SiNextdotjs className={className}/>;
         case 'laravel':
-            return <Wrapper size={size} className={className}><SiLaravel /></Wrapper>;
+            return <SiLaravel className={className}/>;
         case 'css':
         case 'css3':
-            return <Wrapper size={size} className={className}><SiCss3 /></Wrapper>;
+            return <SiCss3 className={className}/>;
         case 'html':
         case 'html5':
-            return <Wrapper size={size} className={className}><SiHtml5 /></Wrapper>;
+            return <SiHtml5 className={className}/>;
+        case 'upload':
+            return <IconUpload className={className}/>;
         default:
             throw new Error('Unknown icon name');
     }

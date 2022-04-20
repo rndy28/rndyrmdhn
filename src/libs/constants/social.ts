@@ -17,6 +17,6 @@ export default [
     },
     {
         name: 'facebook',
-        url: 'https://www.facebook.com/rndyramadhan',
+        url: 'https://www.facebook.com/rendy.farhan02/',
     }, 
 ]

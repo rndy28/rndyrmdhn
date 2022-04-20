@@ -1,4 +1,4 @@
-interface Project {
+interface IProject {
     title: string;
     featured: boolean;
     summary: string;
@@ -9,9 +9,5 @@ interface Project {
     };
 }
 
-export interface ProjectProps {
-    projects: Project[];
-}
-
-export default Project;
+export default IProject;
 

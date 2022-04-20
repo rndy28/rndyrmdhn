@@ -11,6 +11,9 @@ const Container = styled.main`
     width: 78%;
     margin: 0 auto;
     max-width: 50rem;
+    @media(min-width: 1200px) {
+        max-width: 52rem;
+    }
 `;
 
 const Layout:NextPage<LayoutProps> = ({ children, ...props }) => {

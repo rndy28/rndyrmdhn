@@ -9,12 +9,17 @@ const Container = styled.footer`
     padding-block: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     color: #4C566A;
     @media (min-width: 768px) {
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
+        gap: .8rem;
+    }
+    @media (min-width: 1200px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 `;
 
@@ -28,6 +33,9 @@ const Item = styled.li``;
 const Social = styled.div`
     display: flex;
     gap: 2rem;
+    @media(min-width: 768px) {
+        justify-content: flex-end;
+    }
 `
 
 const Text = styled.p``;
