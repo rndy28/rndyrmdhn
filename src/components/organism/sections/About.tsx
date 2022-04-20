@@ -19,7 +19,7 @@ const Item = styled.li`
     color: #434C5E;
 `;
 
-const about = () => {
+const About = () => {
     return (
         <Container id='about'>
             <Title>About Me</Title>
@@ -46,4 +46,4 @@ const about = () => {
     );
 };
 
-export default about;
+export default About;

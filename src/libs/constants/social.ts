@@ -5,7 +5,7 @@ export default [
     },
     {
         name: 'linkedin',
-        url: 'https://www.linkedin.com/in/rendy-ramadhan-0946491a0/',
+        url: 'https://www.linkedin.com/in/rendy-ramadhan-0946491a0',
     },
     {
         name: 'mail',
@@ -17,6 +17,6 @@ export default [
     },
     {
         name: 'facebook',
-        url: 'https://www.facebook.com/rendy.farhan02/',
+        url: 'https://www.facebook.com/rendy.farhan02',
     }, 
 ]

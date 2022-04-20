@@ -9,7 +9,7 @@ const Container = styled.section`
 `;
 
 
-const contact = () => {
+const Contact = () => {
     return (
         <Container id='contact'>
             <Title>Contact Me</Title>
@@ -20,4 +20,4 @@ const contact = () => {
     );
 };
 
-export default contact;
+export default Contact;

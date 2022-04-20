@@ -140,7 +140,7 @@ type Props = {
     image?: string;
 };
 
-const intro = ({ title, subtitle, description, image }: Props) => {
+const Intro = ({ title, subtitle, description, image }: Props) => {
     return (
         <Container>
             <Figure role='figure' borderColor='#D8DEE9' borderWidth={6} spacesBetweenStrokes={15}>
@@ -163,11 +163,12 @@ const intro = ({ title, subtitle, description, image }: Props) => {
                     background='#4C566A'
                     color='#ECEFF4'
                     text='Resume'
-                    className='btn-download-resume'
-                    children={<IconMapper name='upload' className='icon-upload'/>} />
+                    className='btn-download-resume'>
+                    <IconMapper name='upload' className='icon-upload' />
+                </Button>
             </Wrapper>
         </Container>
     );
 };
 
-export default intro;
+export default Intro;

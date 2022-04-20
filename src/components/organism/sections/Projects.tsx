@@ -16,7 +16,7 @@ const Wrapper = styled.div`
     }
 `;
 
-const projects = ({ projects }: { projects: Project[]; }) => {
+const Projects = ({ projects }: { projects: Project[]; }) => {
     return (
         <Container id='projects'>
             <Title>Featured Projects</Title>
@@ -31,4 +31,4 @@ const projects = ({ projects }: { projects: Project[]; }) => {
     );
 };
 
-export default projects;
+export default Projects;

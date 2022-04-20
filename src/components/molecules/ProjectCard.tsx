@@ -38,7 +38,7 @@ const ProjectCard = ({ title, summary, stack, links }: Project) => {
                 <div>
                     {
                         stack.map((name) => {
-                            return <IconMapper name={name} size='md' key={name} />;
+                            return <IconMapper name={name} key={name} />;
                         })
                     }
                 </div>
