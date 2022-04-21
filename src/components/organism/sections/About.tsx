@@ -1,8 +1,18 @@
+import { slideBottom } from 'libs/animations';
+import useIntersectionObserver from 'libs/hooks/useIntersectionObserver';
+import { useRef } from 'react';
 import styled from 'styled-components';
-import { Title, Description } from './shared';
+import { Description, Title } from './shared';
 
-const Container = styled.section`
+
+const Container = styled.section<{ isVisible: boolean | undefined; }>`
     margin-block: 5rem;
+    opacity: ${({ isVisible }) => typeof isVisible !== 'undefined' && isVisible ? 1 : 0};
+    animation-name: ${({ isVisible }) => typeof isVisible !== 'undefined' && (isVisible && slideBottom)};
+    animation-duration: .8s;
+    animation-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    animation-fill-mode: both;
+    animation-delay: .2s;
     ${Title} {
         margin-bottom: .5rem;
     }
@@ -13,6 +23,7 @@ const Items = styled.ul`
     grid-template-columns: repeat(2, 1fr);
     margin-top: 1rem;
     max-width: 20rem;
+    grid-row-gap: .4rem;
 `;
 
 const Item = styled.li`
@@ -20,8 +31,14 @@ const Item = styled.li`
 `;
 
 const About = () => {
+    const elementRef = useRef<HTMLElement | null>(null);
+    const isVisible = useIntersectionObserver(elementRef, {
+        threshold: 0.3,
+        once: true
+    });
+
     return (
-        <Container id='about'>
+        <Container id='about' ref={elementRef} isVisible={isVisible}>
             <Title>About Me</Title>
             <Description>
                 Hello There 👋, My name is Rendy Farhan Ramadhan and  I&apos;m a student from Jakarta, Indonesia. I&apos;m a passionate web developer who loves to create things.

@@ -1,12 +1,13 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import BaseCard from 'components/atoms/shared/BaseCard';
 import Image from 'next/image';
 import Button from 'components/atoms/Button';
 import IconMapper from 'components/atoms/IconMapper';
 import { Description } from './shared';
+import { slideBottom } from 'libs/animations';
 
-const Container = styled(motion.section)`
+const Container = styled.section`
+    animation: ${slideBottom} .6s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
     @media(min-width: 700px) {
         display: flex;
         flex-direction: row-reverse;
@@ -141,6 +142,7 @@ type Props = {
 };
 
 const Intro = ({ title, subtitle, description, image }: Props) => {
+
     return (
         <Container>
             <Figure role='figure' borderColor='#D8DEE9' borderWidth={6} spacesBetweenStrokes={15}>

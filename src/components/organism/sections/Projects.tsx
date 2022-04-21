@@ -1,10 +1,19 @@
+import { slideBottom } from 'libs/animations';
+import useIntersectionObserver from 'libs/hooks/useIntersectionObserver';
+import { useRef } from 'react';
 import ProjectCard from 'components/molecules/ProjectCard';
 import styled from 'styled-components';
 import type Project from 'types/project';
 import { Title } from './shared';
 
-const Container = styled.section`
+const Container = styled.section<{ isVisible: boolean | undefined; }>`
     margin-block: 5rem;
+    opacity: ${({ isVisible }) => typeof isVisible !== 'undefined' && isVisible ? 1 : 0};
+    animation-name: ${({ isVisible }) => typeof isVisible !== 'undefined' && (isVisible && slideBottom)};
+    animation-duration: .8s;
+    animation-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    animation-fill-mode: both;
+    animation-delay: .2s;
 `;
 
 const Wrapper = styled.div`
@@ -16,14 +25,21 @@ const Wrapper = styled.div`
     }
 `;
 
+
 const Projects = ({ projects }: { projects: Project[]; }) => {
+    const rootElementRef = useRef<HTMLElement | null>(null);
+    const isRootVisible = useIntersectionObserver(rootElementRef, {
+        threshold: 0.3,
+        once: true
+    });
+
     return (
-        <Container id='projects'>
+        <Container id='projects' ref={rootElementRef} isVisible={isRootVisible}>
             <Title>Featured Projects</Title>
             <Wrapper>
                 {
                     projects.map((props, index) => (
-                        <ProjectCard key={index}  {...props} />
+                        <ProjectCard key={index} {...props} />
                     ))
                 }
             </Wrapper>

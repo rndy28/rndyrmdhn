@@ -1,7 +1,6 @@
 import Footer from 'components/organism/Footer';
 import { About, Contact, Intro, Projects } from 'components/organism/sections';
 import Layout, { LayoutProps } from 'components/templates/Layout';
-import { AnimatePresence } from 'framer-motion';
 import getProjects from 'libs/helpers/getProjects';
 import type { NextPage } from 'next';
 import type IProject from 'types/project';
@@ -42,12 +41,10 @@ const Home: NextPage<{ projects: IProject[]; }> = ({ projects }) => {
 
   return (
     <Layout {...meta}>
-      <AnimatePresence>
-        <Intro title='Rendy Ramadhan.' subtitle='Student &amp; Frontend Developer.' description={meta.description} />
-        <About />
-        <Projects projects={projects} />
-        <Contact />
-      </AnimatePresence>
+      <Intro title='Rendy Ramadhan.' subtitle='Student &amp; Frontend Developer.' description={meta.description} />
+      <About />
+      <Projects projects={projects} />
+      <Contact />
       <Footer />
     </Layout>
   );

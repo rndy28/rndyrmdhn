@@ -11,6 +11,9 @@ const Container = styled.footer`
     flex-direction: column;
     gap: 1rem;
     color: #4C566A;
+    a:hover {
+        color: #88C0D0;
+    }
     @media (min-width: 768px) {
         flex-direction: row;
         justify-content: space-between;

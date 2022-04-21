@@ -31,7 +31,7 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html>
+            <Html lang='en'>
                 <Head>
                     <meta name='theme-color' content='#D8DEE9' />
                     <meta name="google-site-verification" content="Y60QX0WsFBGoGn7vnSEdRZUMewKr4A8BSLlMAfl5W4k" />
@@ -42,7 +42,7 @@ class MyDocument extends Document {
                     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
                     <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap" rel="stylesheet" />
                 </Head>
-                <body lang='en'>
+                <body>
                     <Main />
                     <NextScript />
                 </body>

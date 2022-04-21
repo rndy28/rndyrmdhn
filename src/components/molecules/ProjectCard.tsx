@@ -23,6 +23,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
     & > div {
         display: flex;
+        align-items: center;
         gap: .8rem;
     }
 `;
