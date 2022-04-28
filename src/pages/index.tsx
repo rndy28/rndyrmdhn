@@ -8,7 +8,7 @@ import type IProject from 'types/project';
 const meta: LayoutProps = {
   title: 'Rendy Farhan Ramadhan',
   templateTitle: 'Student and Frontend Developer From Indonesia',
-  description: `Hello there 👋, Im Rendy Farhan Ramadhan, I (happen to) loves code, minimalist surreal art and music.`,
+  description: `Hello there 👋, Im Rendy Farhan Ramadhan, I loves code, art and music.`,
   openGraph: {
     type: 'website',
     site_name: 'Rendy Farhan Ramadhan',

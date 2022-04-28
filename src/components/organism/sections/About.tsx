@@ -16,6 +16,9 @@ const Container = styled.section<{ isVisible: boolean | undefined; }>`
     ${Title} {
         margin-bottom: .5rem;
     }
+    ${Description} h3 {
+        margin-bottom: .5rem;
+    }
 `;
 
 const Items = styled.ul`
@@ -30,6 +33,16 @@ const Item = styled.li`
     color: #434C5E;
 `;
 
+
+const techs = [
+    'TypeScript',
+    'React',
+    'NextJS',
+    'NodeJS',
+    'ExpressJS',
+    'MongoDB',
+];
+
 const About = () => {
     const elementRef = useRef<HTMLElement | null>(null);
     const isVisible = useIntersectionObserver(elementRef, {
@@ -41,24 +54,26 @@ const About = () => {
         <Container id='about' ref={elementRef} isVisible={isVisible}>
             <Title>About Me</Title>
             <Description>
-                Hello There 👋, My name is Rendy Farhan Ramadhan and  I&apos;m a student from Jakarta, Indonesia. I&apos;m a passionate web developer who loves to create things.
-                Although in the first semester of my high school life i was not so interested in programming, because when i go into that high school its just because its free of charge.
+                <h3>A Student, Frontend Developer, and a Music Lover</h3>
+
+                Rendy Farhan Ramadhan is a student at Vocational High School State 1 of Central Jakarta (SMK Negeri 1 Jakarta). Live in outskirts of Jakarta, Indonesia.
+
                 <br />
                 <br />
-                Then after my first semester is done, I think about my future more seriously and i started to learn programming. Although at first i struggled with it, but after a while i started to understand it.
-                Fast forward to today i&apos;m still learning new things and I&apos;m still trying to learn more about programming.
+
+                Hobbies include:
+                coding,
+                staring at night sky for 20 minute, 
+                listening to the music same music over and over until he get bored, 
+                looking at minimalist art,
+                and reading book.
                 <br />
                 <br />
-                Here are some of programming languages(and frameworks) that i&apos;ve been working with recently:
+                Technology that he&apos;s been working with recently:
+                <Items>
+                    {techs.map((tech) => (<Item key={tech}>{tech}</Item>)) }
+                </Items>
             </Description>
-            <Items>
-                <Item>Javascript</Item>
-                <Item>TypeScript</Item>
-                <Item>React</Item>
-                <Item>Node.js</Item>
-                <Item>Express</Item>
-                <Item>MongoDB</Item>
-            </Items>
         </Container>
     );
 };
