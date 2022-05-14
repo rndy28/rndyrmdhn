@@ -16,8 +16,9 @@ const Container = styled.section<{ isVisible: boolean | undefined; }>`
     ${Title} {
         margin-bottom: .5rem;
     }
-    ${Description} h3 {
+    ${Title} ~ h3 {
         margin-bottom: .5rem;
+        color: #434C5E;
     }
 `;
 
@@ -53,9 +54,8 @@ const About = () => {
     return (
         <Container id='about' ref={elementRef} isVisible={isVisible}>
             <Title>About Me</Title>
+            <h3>A Student, Frontend Developer, and a Music Lover</h3>
             <Description>
-                <h3>A Student, Frontend Developer, and a Music Lover</h3>
-
                 Rendy Farhan Ramadhan is a student at Vocational High School State 1 of Central Jakarta (SMK Negeri 1 Jakarta). Live in outskirts of Jakarta, Indonesia.
 
                 <br />
@@ -63,17 +63,17 @@ const About = () => {
 
                 Hobbies include:
                 coding,
-                staring at night sky for 20 minute, 
-                listening to the music same music over and over until he get bored, 
+                staring at night sky for 20 minute,
+                listening to the music same music over and over until he get bored,
                 looking at minimalist art,
                 and reading book.
                 <br />
                 <br />
                 Technology that he&apos;s been working with recently:
-                <Items>
-                    {techs.map((tech) => (<Item key={tech}>{tech}</Item>)) }
-                </Items>
             </Description>
+            <Items>
+                {techs.map((tech) => (<Item key={tech}>{tech}</Item>))}
+            </Items>
         </Container>
     );
 };

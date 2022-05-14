@@ -5,6 +5,7 @@ import Button from 'components/atoms/Button';
 import IconMapper from 'components/atoms/IconMapper';
 import { Description } from './shared';
 import { slideBottom } from 'libs/animations';
+import { useRouter } from 'next/router';
 
 const Container = styled.section`
     animation: ${slideBottom} .6s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
@@ -142,6 +143,8 @@ type Props = {
 };
 
 const Intro = ({ title, subtitle, description, image }: Props) => {
+    const router = useRouter();
+
 
     return (
         <Container>
@@ -161,7 +164,7 @@ const Intro = ({ title, subtitle, description, image }: Props) => {
                 <SubTitle>{subtitle}</SubTitle>
                 <Description>{description}</Description>
                 <Button
-                    onClick={() => console.log('clicked')}
+                    onClick={() => router.push('/api/resume')}
                     background='#4C566A'
                     color='#ECEFF4'
                     text='Resume'
