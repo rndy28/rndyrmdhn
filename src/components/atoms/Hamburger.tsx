@@ -14,7 +14,7 @@ const Line = styled.span<{ isOpen: boolean; }>`
     height: 2px;
     position: absolute;
     background-color: #434C5E;
-    transition: all .2s ease-in-out;
+    transition: transform .2s ease-in-out;
     &:nth-of-type(1) {
         top: ${props => props.isOpen ? '6px' : '1px'};
         transform: ${({ isOpen }) => isOpen && 'rotate(135deg)'};
