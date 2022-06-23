@@ -1,58 +1,37 @@
-import Link from 'next/link';
 import styled from 'styled-components';
-import BaseCard from './shared/BaseCard';
 
-type ButtonProps = {
-  text: string;
-  background?: string;
-  color?: string;
-  href?: string;
-  className?: string;
-  onClick?: (() => void);
-  children?: React.ReactNode;
-};
-
-const Container = styled(BaseCard) <{ color?: string; }>`
+const Container = styled.button`
+  cursor: pointer;
   width: 8rem;
   height: 2.5rem;
-  color: ${({ color }) => color};
   display: flex;
   justify-content: center;
   align-items: center;
-  @media(min-width: 768px) {
+  background-color: #434c5e;
+  color: #eceff4;
+  border-radius: 0.4rem;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  transition: background-color 250ms ease;
+  @media (min-width: 768px) {
     width: 10rem;
     height: 2.7rem;
   }
-  @media(min-width: 1024px) {
+  @media (min-width: 1024px) {
     width: 12rem;
     height: 3rem;
   }
+  & > * {
+    color: inherit;
+  }
+  &:hover {
+    background-color: #4c566a;
+  }
 `;
 
-const Button = ({
-  text,
-  background,
-  color,
-  href,
-  className,
-  onClick,
-  children
-}: ButtonProps) => {
-  return (
-    <Container
-      role='button'
-      className={className}
-      background={background}
-      borderColor={background}
-      color={color}
-      onClick={onClick}
-      spacesBetweenStrokes={9}
-      noBorderRadius
-    >
-      {href ? <Link href={href}><a>{text}</a></Link> : <span>{text}</span>}
-      {children && children}
-    </Container>
-  );
+interface Props extends React.ComponentPropsWithoutRef<'button'> {}
+
+const Button = ({ children, ...rest }: Props) => {
+  return <Container {...rest}>{children}</Container>;
 };
 
 export default Button;

@@ -5,11 +5,16 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-const getProjects = async (): Promise<Project[]> => {
-    const paths = getFullPath('/projects');
+/**
+ * 
+ * @param projectPath folder name
+ * @returns array of project
+ */
+const getProjects = async (projectPath: string): Promise<Project[]> => {
+    const paths = getFullPath(`/${projectPath}`);
 
     return paths.map(p => {
-        const fullpath = path.join(`${PROJECT_PATH}/projects`, p);
+        const fullpath = path.join(`${PROJECT_PATH}/${projectPath}`, p);
         const fileContent = fs.readFileSync(fullpath, 'utf8');
 
         const { data } = matter(fileContent);

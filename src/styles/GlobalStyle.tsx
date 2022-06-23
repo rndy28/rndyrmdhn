@@ -15,6 +15,7 @@ const Styles = createGlobalStyle`
     }
     p, span {
         font-family: 'Manjari', sans-serif;
+        color: #4C566A;
     }
     a {
         text-decoration: none;
@@ -22,12 +23,20 @@ const Styles = createGlobalStyle`
     }
     h1, h2, h3, h4, h5, h6 {
         margin-block: 0;
+        color: #434C5E;
     }
     h1 {
         line-height: 1.1;
     }
     ul {
         list-style-type: none;
+    }
+
+    button, input {
+        border: none;
+        outline: none;
+        font-family: 'Manjari', sans-serif;
+        font-size: inherit;
     }
 
     ::-webkit-scrollbar {

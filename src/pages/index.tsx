@@ -1,4 +1,5 @@
 import Footer from 'components/organism/Footer';
+import Header from 'components/organism/Header';
 import { About, Contact, Intro, Projects } from 'components/organism/sections';
 import Layout, { LayoutProps } from 'components/templates/Layout';
 import getPhoto from 'libs/helpers/getPhoto';
@@ -9,8 +10,8 @@ import type IProject from 'types/project';
 
 const meta: LayoutProps = {
   title: 'Rendy Farhan Ramadhan',
-  templateTitle: 'Student and Frontend Developer From Indonesia',
-  description: `Hello there 👋, Im Rendy Farhan Ramadhan, I loves code, art and music.`,
+  templateTitle: 'Frontend Developer From Indonesia',
+  description: `Hello there 👋, Iam Rendy Farhan Ramadhan, A Frontend Developer from Indonesia`,
   openGraph: {
     type: 'website',
     site_name: 'Rendy Farhan Ramadhan',
@@ -31,33 +32,29 @@ const meta: LayoutProps = {
 
 export const getStaticProps = async () => {
   try {
-    const res = await Promise.all([getProjects(), getPhoto()]);
+    const res = await Promise.all([getProjects('projects'), getPhoto()]);
 
-    const projects = res[0].slice() || [];
-    const photo = res[1] || undefined;
+    const featuredProjects = res[0].slice() || [];
+    const photo = res[1];
 
     return {
-      props: { projects, photo },
+      props: { featuredProjects, photo },
     };
   } catch (error) {
     return error;
   }
 };
 
-const Home: NextPage<{ projects: IProject[]; photo: Photo,  }> = ({
-  projects,
-  photo,
-}) => {
+const Home: NextPage<{
+  featuredProjects: IProject[];
+  photo: Photo;
+}> = ({ featuredProjects, photo }) => {
   return (
     <Layout {...meta}>
-      <Intro
-        title={meta.title}
-        subtitle={meta.templateTitle!}
-        description={meta.description}
-        photo={photo}
-      />
+      <Header />
+      <Intro title={meta.title} description={meta.description!} photo={photo} />
       <About />
-      <Projects projects={projects} />
+      <Projects projects={featuredProjects} title="Featured Projects" />
       <Contact />
       <Footer />
     </Layout>
