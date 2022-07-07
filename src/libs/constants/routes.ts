@@ -1,5 +1,3 @@
-export default [
-    'about',
-    'projects',
-    'contact'
-];
+const ROUTES = ["about", "projects", "contact"];
+
+export default ROUTES

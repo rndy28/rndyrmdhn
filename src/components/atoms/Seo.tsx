@@ -6,7 +6,7 @@ export interface SeoProps extends NextSeoProps {
 
 
 const Seo: React.FC<SeoProps> = ({...props}) => {
-    const TITLE_TEMPLATE = `%s - ${props.templateTitle ?? 'Rendy F Ramadhan, Student and Web Developer from Indonesia'}`
+    const TITLE_TEMPLATE = `%s - ${props.templateTitle ?? 'Rendy F Ramadhan, Frontend Developer from Indonesia'}`
     return (
         <NextSeo {...props} title={props.title} titleTemplate={TITLE_TEMPLATE}/>
     );

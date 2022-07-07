@@ -10,7 +10,7 @@ const Styles = createGlobalStyle`
         scroll-behavior: smooth;
     }
     body {
-        font-family: 'Space Mono', 'JetBrains Mono', 'Roboto Mono', monospace;
+        font-family: 'Space Mono', monospace;
         min-height: 100vh;
     }
     p, span {

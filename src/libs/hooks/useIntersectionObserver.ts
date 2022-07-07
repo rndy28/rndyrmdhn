@@ -45,7 +45,7 @@ const useIntersectionObserver = (
 
         return () => observer.disconnect();
 
-    }, [element, threshold, root, rootMargin]);
+    }, [element, threshold, root, rootMargin, once]);
 
     return isVisible;
 };

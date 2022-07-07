@@ -14,18 +14,12 @@ const Container = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  & figure {
-    display: none;
-  }
   @media (min-width: 768px) {
     animation: ${slideBottom} 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) both;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     min-height: 80vh;
-    & figure {
-      display: block;
-    }
   }
 `;
 
@@ -105,8 +99,8 @@ const Wrapper = styled.div`
 
 type Props = {
   title: string;
-  photo: Photo;
   description: string;
+  photo: Photo;
 };
 
 const Intro = ({ title, description, photo }: Props) => {
@@ -117,18 +111,18 @@ const Intro = ({ title, description, photo }: Props) => {
       <Figure borderColor={photo.color}>
         <Image
           layout="fill"
-          priority
           src={photo.urls.full}
           alt={photo.description ?? photo.alt_description}
           placeholder="blur"
           blurDataURL={photo.urls.thumb}
           quality={100}
+          loading="lazy"
         />
         <Figure.Caption>
-          Photo by{' '}
+          Photo by{" "}
           <NextLink href={photo.user.links.html}>
-            {photo.user.first_name + ' ' + photo.user.last_name}
-          </NextLink>{' '}
+            {photo.user.first_name + " " + photo.user.last_name}
+          </NextLink>{" "}
           on <NextLink href={photo.links.html}>Unsplash</NextLink>
         </Figure.Caption>
       </Figure>
@@ -141,7 +135,7 @@ const Intro = ({ title, description, photo }: Props) => {
         <Title>{title}</Title>
         <Description>{description}</Description>
         <Button
-          onClick={() => router.push('/api/resume')}
+          onClick={() => router.push("/api/resume")}
           className="btn-download-resume"
         >
           <span> Resume</span>

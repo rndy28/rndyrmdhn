@@ -1,8 +1,8 @@
-import Hamburger from 'components/atoms/Hamburger';
-import Link from 'next/link';
-import { useState } from 'react';
-import styled from 'styled-components';
-import ROUTES from '../../libs/constants/routes';
+import Hamburger from "components/atoms/Hamburger";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import ROUTES from "libs/constants/routes";
 
 const Container = styled.nav`
   display: flex;
@@ -17,8 +17,8 @@ const Items = styled.ul`
   position: absolute;
   left: 0;
   transition: 0.3s ease-in-out;
-  opacity: ${(p) => (!p['aria-hidden'] ? 1 : 0)};
-  transform: translateX(${(p) => (!p['aria-hidden'] ? '0' : '-100%')});
+  opacity: ${(p) => (!p["aria-hidden"] ? 1 : 0)};
+  transform: translateX(${(p) => (!p["aria-hidden"] ? "0" : "-100%")});
   min-height: inherit;
   background-color: #fff;
   width: 100%;
@@ -67,6 +67,14 @@ const Nav = () => {
   const onMenuClick = () => {
     setHidden((c) => !c);
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth >= 650) {
+      setHidden(false);
+    } else {
+      setHidden(true);
+    }
+  }, []);
 
   return (
     <Container>
