@@ -13,13 +13,18 @@ const Container = styled.section`
   min-height: 70vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  & figure {
+    display: none;
+  }
   @media (min-width: 768px) {
     animation: ${slideBottom} 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) both;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     min-height: 80vh;
+    & figure {
+      display: block;
+    }
   }
 `;
 
