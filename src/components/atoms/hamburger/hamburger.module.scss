@@ -1,0 +1,35 @@
+.c-hamburger {
+  position: relative;
+  z-index: 999;
+  width: 1rem;
+  height: 0.9rem;
+  cursor: pointer;
+  &__line {
+    width: inherit;
+    height: 2px;
+    position: absolute;
+    background-color: #585f6d;
+    transition: transform 0.2s ease-in-out;
+    &:nth-of-type(1) {
+      top: 2px;
+    }
+    &:nth-of-type(2) {
+      right: 0;
+      top: 10px;
+      width: 1.3rem;
+    }
+  }
+  &.toggled &__line:nth-of-type(1) {
+    top: 6px;
+    transform: rotate(135deg);
+  }
+  &.toggled &__line:nth-of-type(2) {
+    top: 0.4rem;
+    transform: rotate(-135deg);
+    width: inherit;
+  }
+
+  @media (min-width: 650px) {
+    display: none;
+  }
+}

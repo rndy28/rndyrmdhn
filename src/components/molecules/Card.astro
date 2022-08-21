@@ -1,0 +1,66 @@
+---
+import type IProject from "types/project";
+import Label from "components/atoms/Label.astro";
+import IconMapper from "components/atoms/IconMapper";
+
+export type Props = IProject & Record<string, any>;
+
+const { title, summary, links, stack, featured, ...props } =
+  Astro.props as Props;
+---
+
+<article class="c-card" {...props}>
+  <div>
+    <h1 class="c-card__title">{title}</h1>
+    <p class="c-card__summary">{summary}</p>
+  </div>
+  <div class="c-card__stack">
+    {stack.map((label) => <Label>{label}</Label>)}
+  </div>
+
+  <div class="c-card__wrapper">
+    <a target="_blank" href={links.github} rel="noopener noreferrer">
+      <IconMapper client:visible name="github" />
+    </a>
+    <a target="_blank" href={links.live} rel="noopener noreferrer">
+      <IconMapper client:visible name="link" />
+    </a>
+  </div>
+</article>
+
+<style>
+  .c-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #eceff4;
+    border-radius: 0.4rem;
+    padding: 1rem;
+    position: relative;
+  }
+  .c-card__title {
+    margin-block: 0 0.8rem;
+  }
+  .c-card__summary {
+    margin-block: 0.5rem 1rem;
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .c-card__stack,
+  .c-card__wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .c-card__stack {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    width: fit-content;
+  }
+  .c-card__wrapper {
+    gap: 0.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+</style>

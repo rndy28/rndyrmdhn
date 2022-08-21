@@ -1,0 +1,41 @@
+---
+import Card from "components/molecules/Card.astro";
+import type IProject from "types/project";
+
+const projects = await Astro.glob<IProject>(
+  "../../../libs/data/projects/*.mdx"
+);
+---
+
+<section id="projects">
+  <h2 class="section-title" data-aos="fade-up">Projects</h2>
+  <div class="l-projects__grid">
+    {
+      projects.map(({ frontmatter }, idx) => (
+        <Card
+          title={frontmatter.title}
+          summary={frontmatter.summary}
+          featured={frontmatter.featured}
+          links={frontmatter.links}
+          stack={frontmatter.stack}
+          data-aos="fade-up"
+          data-aos-delay={200 * (idx + 1)}
+        />
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .l-projects__grid {
+    display: grid;
+    margin-block: 1.5rem 0.5rem;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .l-projects__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

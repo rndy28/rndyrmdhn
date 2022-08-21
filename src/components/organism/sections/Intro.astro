@@ -1,0 +1,94 @@
+---
+import Button from "components/atoms/button/Button";
+import Figure from "components/molecules/Figure.astro";
+import defaultPhoto from "libs/constants/photo";
+import metaTags from "libs/data/meta";
+import getPhoto from "libs/helpers/getPhoto";
+import IconMapper from "components/atoms/IconMapper";
+
+const photo = (await getPhoto()) ?? defaultPhoto;
+const { title, description } = metaTags;
+---
+
+<section class="l-intro">
+  <Figure photo={photo} />
+  <div class="l-intro__wrapper" data-aos="fade-right" data-aos-delay="100">
+    <h1 class="l-intro__title--mobile">
+      <div>Rendy</div>
+      <div>Farhan</div>
+      <div>Ramadhan</div>
+    </h1>
+    <h1 class="l-intro__title--desktop">{title}</h1>
+    <p>{description}</p>
+    <Button client:load asLink href="/resume.pdf">
+      <span>Resume</span>
+      <IconMapper client:visible name="upload" />
+    </Button>
+  </div>
+</section>
+
+<style>
+  .l-intro {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .l-intro__wrapper {
+    width: 100%;
+    max-width: 25rem;
+  }
+  .l-intro__title--mobile {
+    font-size: 4rem;
+    margin-block: 0 1rem;
+    text-align: start;
+  }
+  .l-intro__title--desktop {
+    display: none;
+  }
+  .icon-tabler-upload {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+  @media (min-width: 768px) {
+    .l-intro__title--mobile {
+      display: none;
+    }
+    .l-intro__title--desktop {
+      display: block;
+      font-size: 2rem;
+      margin-block: 0 1rem;
+    }
+    .l-intro {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      min-height: 80vh;
+    }
+  }
+  @media (min-width: 700px) {
+    .l-intro__wrapper {
+      width: 50%;
+    }
+  }
+  @media (min-width: 950px) {
+    .l-intro__title--desktop {
+      font-size: 2.5rem;
+    }
+  }
+  @media (min-width: 1200px) {
+    .l-intro__wrapper {
+      max-width: 30rem;
+      width: 80%;
+    }
+    .l-intro__title--desktop {
+      font-size: 3rem;
+      margin-top: 0;
+    }
+  }
+  @media (min-width: 1330px) {
+    .l-intro__title--desktop {
+      font-size: 4rem;
+    }
+  }
+</style>

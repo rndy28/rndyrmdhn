@@ -1,0 +1,117 @@
+---
+import FOOTERLINKS from "libs/constants/routes";
+import SOCIALLINK from "libs/constants/social";
+import IconMapper from "components/atoms/IconMapper";
+---
+
+<footer class="l-footer">
+  <ul class="l-footer__list">
+    {
+      FOOTERLINKS.map((text) => (
+        <li>
+          <a href={`#${text}`}>{text}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="l-footer__social-media">
+    {
+      SOCIALLINK.map(({ name, url }) => (
+        <a
+          target="_blank"
+          href={url}
+          rel="noopener noreferrer"
+          class="l-footer__icon"
+        >
+          <span class="l-footer__tooltip js-tooltip">{name}</span>
+          <IconMapper client:visible name={name} />
+        </a>
+      ))
+    }
+  </div>
+  <p class="l-footer__text">Made with ❤️ by Rendy Farhan Ramadhan</p>
+</footer>
+
+<script is:inline>
+  function toggleTooltips() {
+    let timeout;
+    const tooltips = document.querySelectorAll(".js-tooltip");
+    tooltips.forEach((tooltip) => {
+      tooltip.onmouseover = function () {
+        timeout = setTimeout(() => {
+          tooltip.classList.add("show");
+        }, 500);
+      };
+      tooltip.onmouseout = function () {
+        clearTimeout(timeout);
+        tooltip.classList.remove("show");
+      };
+    });
+  }
+  toggleTooltips();
+</script>
+
+<style>
+  .l-footer {
+    padding-block: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #4c566a;
+    a:hover {
+      color: #88c0d0;
+    }
+  }
+  .l-footer__list {
+    display: flex;
+    gap: 1rem;
+  }
+  .l-footer__social-media {
+    display: flex;
+    gap: 2rem;
+  }
+  .l-footer__text {
+    font-size: 0.9rem;
+  }
+  .l-footer__icon {
+    position: relative;
+  }
+  .l-footer__tooltip {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #5e81ac;
+    color: #eceff4;
+    min-height: 1.5rem;
+    display: grid;
+    place-items: center;
+    padding-inline: 0.7rem;
+    padding-top: 6px;
+    border-radius: 0.3rem;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+  }
+  .l-footer__tooltip.show {
+    transform: translate(-50%, -30px);
+    opacity: 1;
+  }
+  @media (min-width: 768px) {
+    .l-footer {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .l-footer__social-media {
+      justify-content: flex-end;
+    }
+  }
+  @media (min-width: 1200px) {
+    .l-footer {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

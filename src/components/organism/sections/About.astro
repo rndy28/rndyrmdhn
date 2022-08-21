@@ -1,0 +1,42 @@
+---
+import TECHS from "libs/constants/techs";
+---
+
+<section id="about" class="l-about" data-aos="fade-up">
+  <h2 class="l-about__title section-title">About Me</h2>
+  <p>
+    Rendy Farhan Ramadhan is a former student of Vocational High School State 1
+    of Central Jakarta (SMK Negeri 1 Jakarta). He&apos;s Live in the outskirts
+    of Jakarta, Indonesia.
+    <br />
+    <br />
+    Hobbies include: coding, staring at night sky for 20 minute, listening to the
+    music same music over and over until he get bored, looking at minimalist art,
+    and reading book.
+    <br />
+    <br />
+    Technology that he&apos;s been working with recently:
+  </p>
+  <ul class="l-about__techs">
+    {TECHS.map((tech) => <li class="l-about__item">{tech}</li>)}
+  </ul>
+</section>
+
+<style>
+  .l-about {
+    margin-block: 5rem 4rem;
+  }
+  .l-about__title {
+    margin-bottom: 1rem;
+  }
+  .l-about__techs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 1rem;
+    max-width: 20rem;
+    grid-row-gap: 0.4rem;
+  }
+  .l-about__item {
+    color: #434c5e;
+  }
+</style>

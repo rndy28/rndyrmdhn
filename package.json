@@ -1,40 +1,64 @@
 {
   "name": "rndyrmdhn",
-  "description": "A personal portfolio website",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "postbuild": "next-sitemap",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && tsc --noEmit && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "astro:check": "astro check",
+    "prettier:check": "prettier --config .prettierrc --check .",
+    "prettier:format": "prettier --config .prettierrc --write .",
+    "lint": "eslint . --ext .ts,.tsx,.astro",
+    "lint:fix": "eslint --fix . --ext .ts,.tsx,.astro",
+    "postinstall": "husky install"
   },
-  "dependencies": {
-    "@tabler/icons": "^1.60.0",
-    "gray-matter": "^4.0.3",
-    "next": "12.1.4",
-    "next-seo": "^5.3.0",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "react-icons": "^4.3.1",
-    "styled-components": "^5.3.5"
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": [
+      "yarn astro:check",
+      "yarn prettier:format",
+      "yarn lint:fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "devDependencies": {
-    "@types/node": "17.0.23",
-    "@types/react": "17.0.43",
-    "@types/react-dom": "17.0.14",
-    "@types/styled-components": "^5.1.24",
-    "eslint": "8.12.0",
-    "eslint-config-next": "12.1.4",
-    "next-sitemap": "^2.5.17",
-    "typescript": "4.6.3"
+    "@astrojs/image": "^0.3.4",
+    "@astrojs/mdx": "^0.10.0",
+    "@astrojs/react": "^1.0.0",
+    "@astrojs/sitemap": "^1.0.0",
+    "@tabler/icons": "^1.84.0",
+    "@types/aos": "^3.0.4",
+    "@types/react": "^18.0.17",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
+    "astro": "^1.0.6",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-astro": "^0.17.1",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.54.4"
   },
-  "author": "Rendy Ramadhan",
-  "email": "rendyramadhan838@gmail.com",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rndy28/rndyrmdhn"
+  "dependencies": {
+    "@fontsource/manjari": "^4.5.10",
+    "@fontsource/space-mono": "^4.5.9",
+    "@nanostores/react": "^0.3.0",
+    "aos": "^3.0.0-beta.6",
+    "nanostores": "^0.6.0",
+    "normalize.css": "^8.0.1"
   }
 }

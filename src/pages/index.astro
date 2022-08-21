@@ -1,0 +1,62 @@
+---
+import Footer from "components/organism/Footer.astro";
+import Header from "components/organism/Header.astro";
+import About from "components/organism/sections/About.astro";
+import Contact from "components/organism/sections/Contact.astro";
+import Intro from "components/organism/sections/Intro.astro";
+import Projects from "components/organism/sections/Projects.astro";
+import Layout from "layouts/Layout.astro";
+---
+
+<script>
+  import AOS from "aos";
+  import "aos/dist/aos.css";
+
+  AOS.init({
+    once: true,
+    easing: "ease-in",
+  });
+</script>
+
+<Layout title="rndyrmdhn">
+  <div class="container">
+    <Header />
+    <Intro />
+    <About />
+    <Projects />
+    <Contact />
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .container {
+    width: 88%;
+    margin-inline: auto;
+    max-width: 50rem;
+  }
+  :global(.section-title) {
+    color: #434c5e;
+    font-size: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    :global(.section-title) {
+      font-size: 1.8rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    :global(.section-title) {
+      font-size: 2rem;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 55rem;
+    }
+  }
+  @media (min-width: 1330px) {
+    :global(.section-title) {
+      font-size: 2.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,35 @@
+.c-btn {
+  cursor: pointer;
+  width: 100%;
+  max-width: 10rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #434c5e;
+  color: #eceff4;
+  border-radius: 0.4rem;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  transition: background-color 250ms ease;
+  gap: 0.5rem;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  font-family: "Manjari", sans-serif;
+  @media (min-width: 768px) {
+    max-width: 11rem;
+  }
+  &--resume {
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    & span {
+      font-weight: inherit;
+      color: inherit;
+      position: relative;
+      top: 2.5px;
+    }
+  }
+  &:hover {
+    background-color: #4c566a;
+  }
+}

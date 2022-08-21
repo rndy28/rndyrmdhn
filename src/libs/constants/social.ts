@@ -8,7 +8,7 @@ const SOCIAL = [
     url: "https://www.linkedin.com/in/rendy-ramadhan-0946491a0",
   },
   {
-    name: "mail",
+    name: "gmail",
     url: "mailto: rendyramadhan838@gmail.com?subject=Say Hi!",
   },
   {
