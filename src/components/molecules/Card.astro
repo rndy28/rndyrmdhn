@@ -19,10 +19,20 @@ const { title, summary, links, stack, featured, ...props } =
   </div>
 
   <div class="c-card__wrapper">
-    <a target="_blank" href={links.github} rel="noopener noreferrer">
+    <a
+      target="_blank"
+      href={links.github}
+      rel="noopener noreferrer"
+      aria-label="Github Link"
+    >
       <IconMapper client:visible name="github" />
     </a>
-    <a target="_blank" href={links.live} rel="noopener noreferrer">
+    <a
+      target="_blank"
+      href={links.live}
+      rel="noopener noreferrer"
+      aria-label="Live site link"
+    >
       <IconMapper client:visible name="link" />
     </a>
   </div>

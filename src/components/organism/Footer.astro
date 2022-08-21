@@ -22,6 +22,7 @@ import IconMapper from "components/atoms/IconMapper";
           href={url}
           rel="noopener noreferrer"
           class="l-footer__icon"
+          aria-label={name}
         >
           <span class="l-footer__tooltip js-tooltip">{name}</span>
           <IconMapper client:visible name={name} />

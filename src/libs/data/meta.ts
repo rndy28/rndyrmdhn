@@ -3,11 +3,6 @@ const meta = {
   templateTitle: "Frontend Developer From Indonesia",
   description:
     "Hello there 👋, Iam Rendy Farhan Ramadhan, A Frontend Developer from Indonesia",
-  openGraph: {
-    type: "website",
-    site_name: "Rendy Farhan Ramadhan",
-    url: "https://www.rndyrmdhn.me/",
-  },
   additionalMetaTags: [
     {
       name: "keywords",

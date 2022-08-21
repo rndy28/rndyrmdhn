@@ -2,6 +2,8 @@
 import "normalize.css";
 import "@fontsource/space-mono";
 import "@fontsource/manjari";
+import metaTags from "libs/data/meta";
+import { SEO } from "astro-seo";
 
 export interface Props {
   title: string;
@@ -28,6 +30,7 @@ const { title } = Astro.props as Props;
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
+    <SEO {...metaTags} />
     <title>{title}</title>
   </head>
   <body>

@@ -58,6 +58,7 @@
     "@fontsource/space-mono": "^4.5.9",
     "@nanostores/react": "^0.3.0",
     "aos": "^3.0.0-beta.6",
+    "astro-seo": "^0.5.1",
     "nanostores": "^0.6.0",
     "normalize.css": "^8.0.1"
   }

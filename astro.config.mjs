@@ -17,4 +17,9 @@ export default defineConfig({
     mdx(),
     image(),
   ],
+  vite: {
+    ssr: {
+      noExternal: ["astro-seo"],
+    },
+  },
 });
