@@ -8,7 +8,7 @@ import IconMapper from "components/atoms/IconMapper";
   <ul class="l-footer__list">
     {
       FOOTERLINKS.map((text) => (
-        <li>
+        <li class="l-footer__item">
           <a href={`#${text}`}>{text}</a>
         </li>
       ))
@@ -73,6 +73,14 @@ import IconMapper from "components/atoms/IconMapper";
   }
   .l-footer__text {
     font-size: 0.9rem;
+  }
+  .l-footer__item a {
+    color: #434c5e;
+    transition: color 0.3s ease-in-out;
+    font-weight: 300;
+  }
+  .l-footer__item a:hover {
+    color: #88c0d0;
   }
   .l-footer__icon {
     position: relative;

@@ -23,18 +23,12 @@
       "yarn lint:fix"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "devDependencies": {
     "@astrojs/image": "^0.3.4",
     "@astrojs/mdx": "^0.10.0",
     "@astrojs/react": "^1.0.0",
     "@astrojs/sitemap": "^1.0.0",
     "@tabler/icons": "^1.84.0",
-    "@types/aos": "^3.0.4",
     "@types/react": "^18.0.17",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
@@ -57,7 +51,6 @@
     "@fontsource/manjari": "^4.5.10",
     "@fontsource/space-mono": "^4.5.9",
     "@nanostores/react": "^0.3.0",
-    "aos": "^3.0.0-beta.6",
     "astro-seo": "^0.5.1",
     "nanostores": "^0.6.0",
     "normalize.css": "^8.0.1"

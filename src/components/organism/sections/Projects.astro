@@ -8,18 +8,16 @@ const projects = await Astro.glob<IProject>(
 ---
 
 <section id="projects">
-  <h2 class="section-title" data-aos="fade-up">Projects</h2>
+  <h2 class="section-title">Projects</h2>
   <div class="l-projects__grid">
     {
-      projects.map(({ frontmatter }, idx) => (
+      projects.map(({ frontmatter }) => (
         <Card
           title={frontmatter.title}
           summary={frontmatter.summary}
           featured={frontmatter.featured}
           links={frontmatter.links}
           stack={frontmatter.stack}
-          data-aos="fade-up"
-          data-aos-delay={200 * (idx + 1)}
         />
       ))
     }
