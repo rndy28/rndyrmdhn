@@ -17,7 +17,7 @@
     "postinstall": "husky install"
   },
   "lint-staged": {
-    "**/*.{ts,tsx,js,jsx}": [
+    "**/*": [
       "yarn astro:check",
       "yarn prettier:format",
       "yarn lint:fix"
