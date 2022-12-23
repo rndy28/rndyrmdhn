@@ -1,4 +1,5 @@
 import type { Photo } from "types/photo";
+
 const photo: Photo = {
   id: "dI9KhXi0ooE",
   created_at: "2017-06-24T20:24:10Z",

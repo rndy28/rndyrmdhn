@@ -1,6 +1,5 @@
 ---
 import type IProject from "types/project";
-import Label from "components/atoms/Label.astro";
 import IconMapper from "components/atoms/IconMapper";
 
 export type Props = IProject & Record<string, any>;
@@ -9,16 +8,27 @@ const { title, summary, links, stack, featured, ...props } =
   Astro.props as Props;
 ---
 
-<article class="c-card" {...props}>
+<article
+  class="flex flex-col justify-between rounded-md bg-snowStorm2-500 p-4 relative"
+  {...props}
+>
   <div>
-    <h1 class="c-card__title">{title}</h1>
-    <p class="c-card__summary">{summary}</p>
+    <h1 class="mb-3 font-semibold text-4xl">{title}</h1>
+    <p class="mt-2 mb-4 leading-tight">
+      {summary}
+    </p>
   </div>
-  <div class="c-card__stack">
-    {stack.map((label) => <Label>{label}</Label>)}
+  <div class="flex items-center flex-wrap gap-[0.4rem] w-fit">
+    {
+      stack.map((label) => (
+        <span class="text-sm font-semibold bg-polarNight2 text-snowStorm0 min-h-[1.5rem] grid place-items-center px-[0.7rem] pt-[4px] rounded-[0.3rem]">
+          {label}
+        </span>
+      ))
+    }
   </div>
 
-  <div class="c-card__wrapper">
+  <div class="flex items-center gap-2 absolute top-4 right-4">
     <a
       target="_blank"
       href={links.github}
@@ -37,40 +47,3 @@ const { title, summary, links, stack, featured, ...props } =
     </a>
   </div>
 </article>
-
-<style>
-  .c-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #eceff4;
-    border-radius: 0.4rem;
-    padding: 1rem;
-    position: relative;
-  }
-  .c-card__title {
-    margin-block: 0 0.8rem;
-  }
-  .c-card__summary {
-    margin-block: 0.5rem 1rem;
-    white-space: pre-wrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .c-card__stack,
-  .c-card__wrapper {
-    display: flex;
-    align-items: center;
-  }
-  .c-card__stack {
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    width: fit-content;
-  }
-  .c-card__wrapper {
-    gap: 0.5rem;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-  }
-</style>

@@ -10,7 +10,6 @@ const IconMapper = ({ name, ...props }: Props) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-upload"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -31,7 +30,6 @@ const IconMapper = ({ name, ...props }: Props) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-brand-facebook"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -49,7 +47,6 @@ const IconMapper = ({ name, ...props }: Props) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-brand-twitter"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -67,7 +64,6 @@ const IconMapper = ({ name, ...props }: Props) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-brand-gmail"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -88,7 +84,6 @@ const IconMapper = ({ name, ...props }: Props) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-brand-github"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -106,7 +101,6 @@ const IconMapper = ({ name, ...props }: Props) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-brand-linkedin"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -128,7 +122,6 @@ const IconMapper = ({ name, ...props }: Props) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-external-link"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -148,7 +141,6 @@ const IconMapper = ({ name, ...props }: Props) => {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-alert-triangle"
           width="24"
           height="24"
           viewBox="0 0 24 24"

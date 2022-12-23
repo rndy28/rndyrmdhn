@@ -1,52 +1,96 @@
 ---
+import clsx from "clsx";
+import Button from "components/atoms/Button";
+import Card from "components/molecules/Card.astro";
+import Figure from "components/molecules/Figure.astro";
 import Footer from "components/organism/Footer.astro";
 import Header from "components/organism/Header.astro";
-import About from "components/organism/sections/About.astro";
-import Contact from "components/organism/sections/Contact.astro";
-import Intro from "components/organism/sections/Intro.astro";
-import Projects from "components/organism/sections/Projects.astro";
 import Layout from "layouts/Layout.astro";
+import defaultPhoto from "libs/constants/photo";
+import TECHS from "libs/constants/techs";
+import metaTags from "libs/data/meta";
+import type IProject from "types/project";
+import getPhoto from "libs/helpers/getPhoto";
+
+const projects = await Astro.glob<IProject>("../libs/data/projects/*.mdx");
+const photo = (await getPhoto()) ?? defaultPhoto;
+const { title, description } = metaTags;
+
+const titleStyle =
+  "text-[1.5rem] font-semibold md:text-[1.8rem] lg:text-4xl min-[1330px]:text-[2.5rem]";
 ---
 
 <Layout title="rndyrmdhn">
-  <div class="container">
+  <div class="w-[88%] mx-auto max-w-[50rem] min-[1200px]:max-w-[55rem]">
     <Header />
-    <Intro />
-    <About />
-    <Projects />
-    <Contact />
+    <section
+      class="min-h-[70vh] w-full flex items-center md:flex md:flex-row-reverse md:justify-between md:min-h-[80vh]"
+    >
+      <Figure photo={photo} />
+      <div
+        class="w-inherit max-w-[25rem] min-[700px]:w-2/4 min-[1200px]:max-w-[30rem] min-[1200px]:w-[80%]"
+      >
+        <h1 class="text-[4rem] font-semibold mb-4 text-start md:hidden">
+          <div class="leading-[1.1]">Rendy</div>
+          <div class="leading-[1.1]">Farhan</div>
+          <div class="leading-[1.1]">Ramadhan</div>
+        </h1>
+        <h1
+          class="hidden md:leading-tight md:font-semibold md:block md:text-4xl md:mb-4 min-[950px]:text-[2.5rem] min-[1200px]:leading-tight min-[1200px]:text-5xl min-[1330px]:text-[4rem]"
+        >
+          {title}
+        </h1>
+        <p class="mb-2">{description}</p>
+        <Button client:load />
+      </div>
+    </section>
+    <section id="about" class="mt-20 mb-16">
+      <h2 class={clsx("mb-4", titleStyle)}>About Me</h2>
+      <p>
+        Rendy Farhan Ramadhan is a former student of Vocational High School
+        State 1 of Central Jakarta (SMK Negeri 1 Jakarta). He&apos;s Live in the
+        outskirts of Jakarta, Indonesia.
+        <br />
+        <br />
+        Hobbies include: coding, staring at night sky for 20 minute, listening to
+        the music same music over and over until he get bored, looking at minimalist
+        art, and reading book.
+        <br />
+        <br />
+        Technology that he&apos;s been working with recently:
+      </p>
+      <ul
+        class="grid grid-cols-[repeat(2,_1fr)] mt-4 max-w-[20rem] gap-y-[0.4rem]"
+      >
+        {TECHS.map((tech) => <li class="text-polarNight2">{tech}</li>)}
+      </ul>
+    </section>
+    <section id="projects">
+      <h2 class={titleStyle}>Projects</h2>
+      <div class="grid mt-6 mb-2 gap-6 md:grid-cols-[1fr_1fr] md:gap-12">
+        {
+          projects.map(({ frontmatter }) => (
+            <Card
+              title={frontmatter.title}
+              summary={frontmatter.summary}
+              featured={frontmatter.featured}
+              links={frontmatter.links}
+              stack={frontmatter.stack}
+            />
+          ))
+        }
+      </div>
+    </section>
+    <section id="contact" class="mt-16 mb-12">
+      <h2 class={clsx("mb-4", titleStyle)}>Contact Me</h2>
+      <p>
+        If you want to get in touch, you can find me on{" "}
+        <a href="https://www.facebook.com/rendy.farhan02/" class="underline">
+          facebook
+        </a>
+        . Or you can email me if you preferred to
+      </p>
+    </section>
     <Footer />
   </div>
 </Layout>
-
-<style>
-  .container {
-    width: 88%;
-    margin-inline: auto;
-    max-width: 50rem;
-  }
-  :global(.section-title) {
-    color: #434c5e;
-    font-size: 1.5rem;
-  }
-  @media (min-width: 768px) {
-    :global(.section-title) {
-      font-size: 1.8rem;
-    }
-  }
-  @media (min-width: 1024px) {
-    :global(.section-title) {
-      font-size: 2rem;
-    }
-  }
-  @media (min-width: 1200px) {
-    .container {
-      max-width: 55rem;
-    }
-  }
-  @media (min-width: 1330px) {
-    :global(.section-title) {
-      font-size: 2.5rem;
-    }
-  }
-</style>

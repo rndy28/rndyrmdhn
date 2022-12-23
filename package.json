@@ -10,14 +10,14 @@
     "preview": "astro preview",
     "astro": "astro",
     "astro:check": "astro check",
-    "prettier:check": "prettier --config .prettierrc --check .",
-    "prettier:format": "prettier --config .prettierrc --write .",
-    "lint": "eslint . --ext .ts,.tsx,.astro",
-    "lint:fix": "eslint --fix . --ext .ts,.tsx,.astro",
+    "prettier:check": "prettier --config .prettierrc --check **/*.{ts,tsx,astro,css}",
+    "prettier:format": "prettier --config .prettierrc --write **/*.{ts,tsx,astro,css}",
+    "lint": "eslint **/*.{ts,tsx,astro} ",
+    "lint:fix": "eslint --fix **/*.{ts,tsx,astro}",
     "postinstall": "husky install"
   },
   "lint-staged": {
-    "**/*": [
+    "**/*.{ts,tsx,astro}": [
       "yarn astro:check",
       "yarn prettier:format",
       "yarn lint:fix"
@@ -28,11 +28,11 @@
     "@astrojs/mdx": "^0.10.0",
     "@astrojs/react": "^1.0.0",
     "@astrojs/sitemap": "^1.0.0",
-    "@tabler/icons": "^1.84.0",
+    "@astrojs/tailwind": "^2.1.3",
     "@types/react": "^18.0.17",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
-    "astro": "^1.0.6",
+    "autoprefixer": "^10.4.13",
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-astro": "^0.17.1",
@@ -41,18 +41,22 @@
     "eslint-plugin-react": "^7.30.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
+    "postcss": "^8.4.20",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.54.4"
+    "tailwindcss": "^3.2.4"
   },
   "dependencies": {
     "@fontsource/manjari": "^4.5.10",
     "@fontsource/space-mono": "^4.5.9",
     "@nanostores/react": "^0.3.0",
+    "@nordice/core": "^0.0.1",
+    "@nordice/tailwind-config": "^0.0.1",
+    "@tabler/icons": "^1.84.0",
+    "astro": "^1.7.2",
     "astro-seo": "^0.5.1",
     "nanostores": "^0.6.0",
-    "normalize.css": "^8.0.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

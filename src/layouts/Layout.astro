@@ -1,15 +1,9 @@
 ---
-import "normalize.css";
 import "@fontsource/space-mono";
 import "@fontsource/manjari";
+import "../styles/main.css";
 import metaTags from "libs/data/meta";
 import { SEO } from "astro-seo";
-
-export interface Props {
-  title: string;
-}
-
-const { title } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -31,61 +25,10 @@ const { title } = Astro.props as Props;
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <SEO {...metaTags} />
-    <title>{title}</title>
   </head>
-  <body>
+  <body
+    class="scroll-smooth bg-white selection:text-white selection:bg-polarNight2 dark:bg-polarNight0 dark:selection:text-polarNight2 dark:selection:bg-snowStorm0"
+  >
     <slot />
-    <style is:global>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: "Space Mono", monospace;
-        min-height: 100vh;
-      }
-      p,
-      span {
-        font-family: "Manjari", sans-serif;
-        color: #4c566a;
-      }
-      a {
-        text-decoration: none;
-        color: #4c566a;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        color: #434c5e;
-      }
-      h1 {
-        line-height: 1.1;
-      }
-      ul {
-        list-style-type: none;
-      }
-
-      ::-webkit-scrollbar {
-        width: 5px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: #d1d1d1;
-        border-radius: 1rem;
-      }
-    </style>
   </body>
 </html>
