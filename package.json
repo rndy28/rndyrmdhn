@@ -52,7 +52,6 @@
     "@nanostores/react": "^0.3.0",
     "@nordice/core": "^0.0.1",
     "@nordice/tailwind-config": "^0.0.1",
-    "@tabler/icons": "^1.84.0",
     "astro": "^1.7.2",
     "astro-seo": "^0.5.1",
     "nanostores": "^0.6.0",

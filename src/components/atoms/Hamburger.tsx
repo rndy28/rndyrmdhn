@@ -6,7 +6,7 @@ type Props = {
 };
 
 const line =
-  "w-inherit h-[2px] absolute bg-polarNight1 transition-all duration-200 ease-in";
+  "w-inherit h-[2px] absolute bg-polarNight1 transition-[transform] duration-200 ease-in";
 
 const Hamburger = ({ handleClick, pressed }: Props) => {
   return (
@@ -19,7 +19,7 @@ const Hamburger = ({ handleClick, pressed }: Props) => {
       <span
         className={clsx(
           line,
-          pressed ? "top-[6px] rotate-[135deg]" : "top-[1px] w-[1.3rem] right-0"
+          pressed ? "top-[6px] rotate-[135deg]" : "top-[1px] w-5 right-0"
         )}
       />
       <span
