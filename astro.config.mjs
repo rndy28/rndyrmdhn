@@ -8,14 +8,20 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://www.rndyrmdhn.me",
-  integrations: [react(), sitemap({
-    changefreq: "weekly",
-    priority: 0.7
-  }), mdx(), image(), tailwind()],
+  site: "https://rndyrmdhn.vercel.app",
+  integrations: [
+    react(),
+    sitemap({
+      changefreq: "weekly",
+      priority: 0.7,
+    }),
+    mdx(),
+    image(),
+    tailwind(),
+  ],
   vite: {
     ssr: {
-      noExternal: ["astro-seo"]
-    }
-  }
+      noExternal: ["astro-seo"],
+    },
+  },
 });

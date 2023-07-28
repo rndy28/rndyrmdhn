@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.rndyrmdhn.me
+Host: https://rndyrmdhn.vercel.app
 
 # Sitemaps
-Sitemap: https://www.rndyrmdhn.me/sitemap.xml
+Sitemap: https://rndyrmdhn.vercel.app/sitemap-index.xml
