@@ -1,96 +1,39 @@
 ---
-import clsx from "clsx";
-import Button from "components/atoms/Button";
-import Card from "components/molecules/Card.astro";
-import Figure from "components/molecules/Figure.astro";
-import Footer from "components/organism/Footer.astro";
-import Header from "components/organism/Header.astro";
 import Layout from "layouts/Layout.astro";
-import defaultPhoto from "libs/constants/photo";
-import TECHS from "libs/constants/techs";
-import metaTags from "libs/data/meta";
-import type IProject from "types/project";
-import getPhoto from "libs/helpers/getPhoto";
-
-const projects = await Astro.glob<IProject>("../libs/data/projects/*.mdx");
-const photo = (await getPhoto()) ?? defaultPhoto;
-const { title, description } = metaTags;
-
-const titleStyle =
-  "text-[1.5rem] font-semibold md:text-[1.8rem] lg:text-4xl min-[1330px]:text-[2.5rem]";
+import socials from "libs/constants/social";
 ---
 
 <Layout>
-  <div class="w-[88%] mx-auto max-w-[50rem] min-[1200px]:max-w-[55rem]">
-    <Header />
-    <section
-      class="min-h-[70vh] w-full flex items-center md:flex md:flex-row-reverse md:justify-between md:min-h-[80vh]"
-    >
-      <Figure photo={photo} />
-      <div
-        class="w-inherit max-w-[25rem] min-[700px]:w-2/4 min-[1200px]:max-w-[30rem] min-[1200px]:w-[80%]"
-      >
-        <h1 class="text-[4rem] font-semibold mb-4 text-start md:hidden">
-          <div class="leading-[1.1]">Rendy</div>
-          <div class="leading-[1.1]">Farhan</div>
-          <div class="leading-[1.1]">Ramadhan</div>
-        </h1>
-        <h1
-          class="hidden md:leading-tight md:font-semibold md:block md:text-4xl md:mb-4 min-[950px]:text-[2.5rem] min-[1200px]:leading-tight min-[1200px]:text-5xl min-[1330px]:text-[4rem]"
-        >
-          {title}
-        </h1>
-        <p class="mb-2">{description}</p>
-        <Button client:load />
-      </div>
-    </section>
-    <section id="about" class="mt-20 mb-16">
-      <h2 class={clsx("mb-4", titleStyle)}>About Me</h2>
-      <p>
-        Rendy Farhan Ramadhan is a former student of Vocational High School
-        State 1 of Central Jakarta (SMK Negeri 1 Jakarta). He&apos;s Live in the
-        outskirts of Jakarta, Indonesia.
-        <br />
-        <br />
-        Hobbies include: coding, staring at night sky for 20 minute, listening to
-        the music same music over and over until he get bored, looking at minimalist
-        art, and reading book.
-        <br />
-        <br />
-        Technology that he&apos;s been working with recently:
+  <main class="p-12">
+    <h1 class="text-polarNight0">rendy ramadhan</h1>
+    <h1 class="text-polarNight0">jakarta, idn</h1>
+
+    <div class="mt-16">
+      <h1 class="font-bold mb-[6px]">today</h1>
+      <p class="font-spaceMono max-w-[33rem]">
+        I work as frontend developer at
+        <span class="underline">teravin technovations</span>
+        currently learning rust and 日本語, also interested in embedded system.
       </p>
-      <ul
-        class="grid grid-cols-[repeat(2,_1fr)] mt-4 max-w-[20rem] gap-y-[0.4rem]"
-      >
-        {TECHS.map((tech) => <li class="text-polarNight2">{tech}</li>)}
-      </ul>
-    </section>
-    <section id="projects">
-      <h2 class={titleStyle}>Projects</h2>
-      <div class="grid mt-6 mb-2 gap-6 md:grid-cols-[1fr_1fr] md:gap-12">
+    </div>
+
+    <!-- <div class="mt-16">
+      <h1 class="font-bold mb-[6px]">projects</h1>
+      <p>-</p>
+    </div> -->
+    <div class="mt-16">
+      <h1 class="font-bold mb-[6px]">links</h1>
+      <ul>
         {
-          projects.map(({ frontmatter }) => (
-            <Card
-              title={frontmatter.title}
-              summary={frontmatter.summary}
-              featured={frontmatter.featured}
-              links={frontmatter.links}
-              stack={frontmatter.stack}
-            />
+          socials.map(({ name, url }) => (
+            <li>
+              <a href={url} class="underline">
+                {name}
+              </a>
+            </li>
           ))
         }
-      </div>
-    </section>
-    <section id="contact" class="mt-16 mb-12">
-      <h2 class={clsx("mb-4", titleStyle)}>Contact Me</h2>
-      <p>
-        If you want to get in touch, you can find me on{" "}
-        <a href="https://www.facebook.com/rendy.farhan02/" class="underline">
-          facebook
-        </a>
-        . Or you can email me if you preferred to
-      </p>
-    </section>
-    <Footer />
-  </div>
+      </ul>
+    </div>
+  </main>
 </Layout>

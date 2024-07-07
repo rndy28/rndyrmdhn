@@ -1,8 +1,6 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
-import mdx from "@astrojs/mdx";
-import image from "@astrojs/image";
 
 import tailwind from "@astrojs/tailwind";
 
@@ -15,8 +13,6 @@ export default defineConfig({
       changefreq: "weekly",
       priority: 0.7,
     }),
-    mdx(),
-    image(),
     tailwind(),
   ],
   vite: {
